@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Tasky</string>
+    <string-array name="priority_levels">
+        <item>High Priority</item>
+        <item>Medium Priority</item>
+        <item>Low Priority</item>
+    </string-array>
+</resources>

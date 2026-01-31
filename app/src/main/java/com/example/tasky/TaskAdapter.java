@@ -1,5 +1,6 @@
 package com.example.tasky;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,16 +34,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         return new ViewHolder(v);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Task task = list.get(position);
         holder.name.setText(task.getName());
         holder.dateTime.setText(task.getDate() + " | " + task.getTime());
 
-        // Color coding for priority
-        if (task.getPriority() == 0) holder.indicator.setBackgroundColor(Color.parseColor("#FF5252")); // Red
-        else if (task.getPriority() == 1) holder.indicator.setBackgroundColor(Color.parseColor("#FFD740")); // Yellow
-        else holder.indicator.setBackgroundColor(Color.parseColor("#69F0AE")); // Green
+        if (task.getPriority() == 0) holder.indicator.setBackgroundColor(Color.parseColor("#FF5252"));
+        else if (task.getPriority() == 1) holder.indicator.setBackgroundColor(Color.parseColor("#FFD740"));
+        else holder.indicator.setBackgroundColor(Color.parseColor("#69F0AE"));
 
         holder.btnDelete.setOnClickListener(v -> listener.onDelete(position));
         holder.btnEdit.setOnClickListener(v -> listener.onEdit(position));
